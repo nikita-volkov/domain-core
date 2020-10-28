@@ -17,7 +17,7 @@ import qualified Language.Haskell.TH as TH (Q, Dec)
 {-|
 Specification of which instances to automatically derive and how.
 
-Its Monoid instance allows you to combine derivers.
+You can combine derivers using Monoid and Semigroup.
 -}
 newtype Deriver =
   {-|

@@ -1,4 +1,4 @@
-module DomainCore.ModelTH
+module DomainCore.TH
 where
 
 import DomainCore.Prelude

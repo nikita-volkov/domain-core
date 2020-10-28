@@ -8,7 +8,7 @@ import DomainCore.Prelude
 import DomainCore.Model
 import qualified Language.Haskell.TH as TH
 import qualified Data.Text as Text
-import qualified DomainCore.ModelTH as ModelTH
+import qualified DomainCore.TH as TH
 import qualified DomainCore.Text as Text
 import qualified THLego.Instances as Instances
 import qualified THLego.Helpers as Helpers
@@ -43,7 +43,7 @@ sumHasField typeName label memberTypes =
     thConstructorName =
       TH.mkName (Text.unpack (Text.sumConstructor typeName label))
     thMemberTypes =
-      fmap ModelTH.typeType memberTypes
+      fmap TH.typeType memberTypes
 
 productHasField :: Text -> Text -> Type -> Int -> Int -> TH.Dec
 productHasField typeName fieldName projectionType numMemberTypes offset =
@@ -55,7 +55,7 @@ productHasField typeName fieldName projectionType numMemberTypes offset =
     thOwnerType =
       TH.ConT (TH.mkName (Text.unpack typeName))
     thProjectionType =
-      ModelTH.typeType projectionType
+      TH.typeType projectionType
     thConstructorName =
       TH.mkName (Text.unpack typeName)
 
@@ -77,7 +77,7 @@ productAccessorIsLabel typeName fieldName projectionType numMemberTypes offset =
     thOwnerType =
       TH.ConT (TH.mkName (Text.unpack typeName))
     thProjectionType =
-      ModelTH.typeType projectionType
+      TH.typeType projectionType
     thConstructorName =
       TH.mkName (Text.unpack typeName)
 
@@ -98,7 +98,7 @@ sumAccessorIsLabel typeName label memberTypes =
     thConstructorName =
       TH.mkName (Text.unpack (Text.sumConstructor typeName label))
     thMemberTypes =
-      fmap ModelTH.typeType memberTypes
+      fmap TH.typeType memberTypes
 
 enumAccessorIsLabel :: Text -> Text -> TH.Dec
 enumAccessorIsLabel typeName label =
@@ -127,7 +127,7 @@ curriedSumConstructorIsLabel typeName label memberTypes =
     thConstructorName =
       TH.mkName (Text.unpack (Text.sumConstructor typeName label))
     thMemberTypes =
-      fmap ModelTH.typeType memberTypes
+      fmap TH.typeType memberTypes
 
 uncurriedSumConstructorIsLabel :: Text -> Text -> [Type] -> TH.Dec
 uncurriedSumConstructorIsLabel typeName label memberTypes =
@@ -141,7 +141,7 @@ uncurriedSumConstructorIsLabel typeName label memberTypes =
     thConstructorName =
       TH.mkName (Text.unpack (Text.sumConstructor typeName label))
     thMemberTypes =
-      fmap ModelTH.typeType memberTypes
+      fmap TH.typeType memberTypes
 
 enumConstructorIsLabel :: Text -> Text -> TH.Dec
 enumConstructorIsLabel typeName label =
@@ -167,7 +167,7 @@ wrapperConstructorIsLabel typeName memberType =
     thConstructorName =
       TH.mkName (Text.unpack typeName)
     thMemberType =
-      ModelTH.typeType memberType
+      TH.typeType memberType
 
 -- ** Mapper
 -------------------------
@@ -184,7 +184,7 @@ wrapperMapperIsLabel typeName memberType =
     thConstructorName =
       TH.mkName (Text.unpack typeName)
     thMemberType =
-      ModelTH.typeType memberType
+      TH.typeType memberType
 
 productMapperIsLabel :: Text -> Text -> Type -> Int -> Int -> TH.Dec
 productMapperIsLabel typeName fieldName projectionType numMemberTypes offset =
@@ -197,7 +197,7 @@ productMapperIsLabel typeName fieldName projectionType numMemberTypes offset =
     thOwnerType =
       TH.ConT (TH.mkName (Text.unpack typeName))
     thProjectionType =
-      ModelTH.typeType projectionType
+      TH.typeType projectionType
     thConstructorName =
       TH.mkName (Text.unpack typeName)
 
@@ -213,7 +213,7 @@ sumMapperIsLabel typeName label memberTypes =
     thConstructorName =
       TH.mkName (Text.unpack (Text.sumConstructor typeName label))
     thMemberTypes =
-      fmap ModelTH.typeType memberTypes
+      fmap TH.typeType memberTypes
 
 
 -- *

@@ -23,6 +23,7 @@ library
     DomainCore.Deriver
     DomainCore.Model
     DomainCore.Parser
+    DomainCore.TH
   other-modules:
     DomainCore.Attoparsec.CategoryCentricDoc
     DomainCore.Attoparsec.General
@@ -34,7 +35,6 @@ library
     DomainCore.Models.CategoryCentricDoc
     DomainCore.Models.TypeString
     DomainCore.Models.TypeCentricDoc
-    DomainCore.ModelTH
     DomainCore.Prelude
     DomainCore.Text
     DomainCore.YamlUnscrambler.CategoryCentricDoc

@@ -81,14 +81,6 @@ import Unsafe.Coerce as Exports
 -------------------------
 import Data.Text as Exports (Text)
 
--- bytestring
--------------------------
-import Data.ByteString as Exports (ByteString)
-
--- hashable
--------------------------
-import Data.Hashable as Exports (Hashable)
-
 -- template-haskell
 -------------------------
 import Language.Haskell.TH.Syntax as Exports (Lift)

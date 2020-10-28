@@ -37,7 +37,6 @@ library
     DomainCore.ModelTH
     DomainCore.Prelude
     DomainCore.Text
-    DomainCore.Util.List
     DomainCore.YamlUnscrambler.CategoryCentricDoc
     DomainCore.YamlUnscrambler.TypeCentricDoc
   build-depends:

@@ -5,7 +5,6 @@ import DomainCore.Prelude hiding (lookup)
 import DomainCore.Model
 import qualified DomainCore.Models.TypeCentricDoc as Doc
 import qualified DomainCore.Models.TypeString as TypeString
-import qualified DomainCore.Util.List as List
 import qualified Data.Text as Text
 
 

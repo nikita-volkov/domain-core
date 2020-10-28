@@ -9,7 +9,7 @@ import DomainCore.Model
 import qualified Language.Haskell.TH as TH
 import qualified Data.Text as Text
 import qualified DomainCore.ModelTH as ModelTH
-import qualified DomainCore.ModelText as Text
+import qualified DomainCore.Text as Text
 import qualified THLego.Instances as Instances
 import qualified THLego.Helpers as Helpers
 

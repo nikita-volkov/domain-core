@@ -5,7 +5,7 @@ import DomainCore.Prelude
 import DomainCore.Model
 import qualified Language.Haskell.TH as TH
 import qualified THLego.Helpers as TH
-import qualified DomainCore.ModelText as Text
+import qualified DomainCore.Text as Text
 import qualified Data.Text as Text
 import qualified Data.Char as Char
 

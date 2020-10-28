@@ -1,9 +1,8 @@
-module DomainCore.ModelText
+module DomainCore.Text
 where
 
 import DomainCore.Prelude
-import DomainCore.Model
-import qualified Data.Text as Text
+import Data.Text
 import qualified Data.Char as Char
 
 
@@ -15,8 +14,8 @@ sumConstructor a b =
   ucFirst b <> a
 
 mapFirstChar fn =
-  foldMap (\ (a, b) -> Text.cons (fn a) b) .
-  Text.uncons
+  foldMap (\ (a, b) -> cons (fn a) b) .
+  uncons
 
 ucFirst =
   mapFirstChar Char.toUpper

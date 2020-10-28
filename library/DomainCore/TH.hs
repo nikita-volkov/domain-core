@@ -55,6 +55,3 @@ recordFieldName fieldNaming a b =
 
 sumConstructorName a b =
   TH.textName (Text.sumConstructor a b)
-
-nelAppT (h :| t) =
-  foldr TH.AppT h t

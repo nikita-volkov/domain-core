@@ -1,6 +1,9 @@
 name: domain-core
 version: 0.1
-synopsis: Low-level API of "domain-core"
+synopsis: Low-level API of "domain"
+description:
+  Use this package for defining extensions to \"domain\".
+  Primarily derivers.
 homepage: https://github.com/nikita-volkov/domain-core
 bug-reports: https://github.com/nikita-volkov/domain-core/issues
 author: Nikita Volkov <nikita.y.volkov@mail.ru>

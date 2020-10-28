@@ -1,3 +1,6 @@
+{-|
+High-level model of schema.
+-}
 module DomainCore.Model
 where
 
@@ -53,8 +56,20 @@ data TypeDef =
 Type.
 -}
 data Type =
+  {-|
+  Fully applied tuple of the listed types.
+  -}
   TupleType [Type] |
+  {-|
+  List of type applications.
+  -}
   AppType (NonEmpty Type) |
+  {-|
+  List type with the type of its element.
+  -}
   ListType Type |
+  {-|
+  Possibly qualified reference to another type.
+  -}
   RefType Text
   deriving (Generic, Show, Eq, Ord, Lift)

@@ -22,21 +22,6 @@ Definition of a type.
 -}
 data TypeDef =
   {-|
-  Alias.
-  Think of it as a @type@ declartion.
-  -}
-  AliasTypeDef Type |
-  {-|
-  Wrapper type.
-  Think of it as a @newtype@ declartion.
-  -}
-  WrapperTypeDef Type |
-  {-|
-  Enumeration.
-  Think of it as an ADT, which only has constructors.
-  -}
-  EnumTypeDef [Text] |
-  {-|
   Sum.
   A list of pairs of names of its members
   (which will be mapped to constructors) and

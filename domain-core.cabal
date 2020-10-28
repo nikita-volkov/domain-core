@@ -30,8 +30,6 @@ library
     DomainCore.Attoparsec.TypeString
     DomainCore.Resolvers.CategoryCentricDoc
     DomainCore.Resolvers.TypeCentricDoc
-    DomainCore.InstanceDec
-    DomainCore.InstanceDecs
     DomainCore.Models.CategoryCentricDoc
     DomainCore.Models.TypeString
     DomainCore.Models.TypeCentricDoc

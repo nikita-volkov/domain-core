@@ -9,10 +9,9 @@ module DomainCore.Deriver
 )
 where
 
-import DomainCore.Prelude hiding (show, ord, all, lift)
+import DomainCore.Prelude
 import DomainCore.Model
 import qualified Language.Haskell.TH as TH (Q, Dec)
-import qualified DomainCore.InstanceDecs as InstanceDecs
 
 
 {-|

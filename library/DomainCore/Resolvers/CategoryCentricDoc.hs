@@ -5,7 +5,6 @@ import DomainCore.Prelude hiding (lookup)
 import DomainCore.Model
 import qualified DomainCore.Models.CategoryCentricDoc as Doc
 import qualified DomainCore.Util.List as List
-import qualified Data.HashMap.Strict as HashMap
 import qualified Data.Text as Text
 
 

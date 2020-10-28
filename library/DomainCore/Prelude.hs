@@ -89,11 +89,6 @@ import Data.ByteString as Exports (ByteString)
 -------------------------
 import Data.Hashable as Exports (Hashable)
 
--- unordered-containers
--------------------------
-import Data.HashSet as Exports (HashSet)
-import Data.HashMap.Strict as Exports (HashMap)
-
 -- template-haskell
 -------------------------
 import Language.Haskell.TH.Syntax as Exports (Lift)

@@ -85,5 +85,9 @@ import Data.Text as Exports (Text)
 -------------------------
 import Language.Haskell.TH.Syntax as Exports (Lift)
 
+-- th-lift-instances
+-------------------------
+import Instances.TH.Lift as Exports ()
+
 showAsText :: Show a => a -> Text
 showAsText = show >>> fromString

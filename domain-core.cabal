@@ -23,6 +23,7 @@ library
     DomainCore.Attoparsec.CategoryCentricDoc
     DomainCore.Attoparsec.General
     DomainCore.Attoparsec.TypeString
+    DomainCore.Deriver
     DomainCore.Resolvers.CategoryCentricDoc
     DomainCore.Resolvers.TypeCentricDoc
     DomainCore.InstanceDec

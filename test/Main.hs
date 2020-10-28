@@ -6,12 +6,11 @@ import Test.Tasty
 import Test.Tasty.Runners
 import Test.Tasty.HUnit
 import Test.Tasty.QuickCheck
-import qualified DomainCore.YamlUnscrambler.CategoryCentricDoc as YamlUnscrambler
-import qualified DomainCore.Model as Model
 import qualified Test.QuickCheck as QuickCheck
-import qualified Control.Foldl as Fold
 import qualified NeatInterpolation as NeatInterpolation
-import qualified Data.Text as Text
+import qualified DomainCore.Model as Model
+import qualified DomainCore.Parser as Parser
+import qualified Data.Text.Encoding as Text
 
 
 main =
@@ -19,12 +18,12 @@ main =
   testGroup "All tests" [
     testCase "Should fail when wrong member of sum-type is supplied" $ let
       res =
-        YamlUnscrambler.parseText YamlUnscrambler.doc [NeatInterpolation.text|
-            sums:
-              A:
-                a:
-                  c: Int
-                b: Char, Double
+        Parser.text [NeatInterpolation.text|
+          A:
+            sum:
+              a:
+                c: Int
+              b: Char, Double
           |]
       in case res of
         Right res ->

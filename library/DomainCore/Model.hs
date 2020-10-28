@@ -5,7 +5,6 @@ module DomainCore.Model
 where
 
 import DomainCore.Prelude
-import Language.Haskell.TH.Syntax (Lift(..))
 
 
 {-|

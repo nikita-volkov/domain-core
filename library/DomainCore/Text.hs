@@ -6,7 +6,7 @@ import Data.Text
 import qualified Data.Char as Char
 
 
-recordField (underscore, prefixWithTypeName) a b =
+recordField underscore prefixWithTypeName a b =
   bool mempty "_" underscore <>
   bool b (lcFirst a <> ucFirst b) prefixWithTypeName
 

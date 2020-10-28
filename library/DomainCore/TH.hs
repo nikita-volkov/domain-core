@@ -10,35 +10,14 @@ import qualified Data.Text as Text
 import qualified Data.Char as Char
 
 
-typeDec fieldNaming (TypeDec a b) =
-  case b of
-    AliasTypeDef b ->
-      TH.typeSynonymDec (TH.textName a) (typeType b)
-    WrapperTypeDef b ->
-      case fieldNaming of
-        Just fieldNaming ->
-          TH.recordNewtypeDec (TH.textName a) (recordFieldName fieldNaming a "value") (typeType b)
-        Nothing ->
-          TH.normalNewtypeDec (TH.textName a) (typeType b)
-    EnumTypeDef b ->
-      TH.enumDec (TH.textName a) (sumConstructorName a <$> b)
-    SumTypeDef b ->
-      TH.sumAdtDec (TH.textName a) (fmap (bimap (sumConstructorName a) (fmap typeType)) b)
-    ProductTypeDef fields ->
-      case fieldNaming of
-        Just fieldNaming ->
-          case fields of
-            [(memberName, memberType)] ->
-              TH.recordNewtypeDec (TH.textName a) (recordFieldName fieldNaming a memberName) (typeType memberType)
-            _ ->
-              TH.recordAdtDec (TH.textName a) (fmap (bimap (recordFieldName fieldNaming a) typeType) fields)
-        Nothing ->
-          case fields of
-            [(_, memberType)] ->
-              TH.normalNewtypeDec (TH.textName a) (typeType memberType)
-            _ ->
-              TH.productAdtDec (TH.textName a) (fmap (typeType . snd) fields)
-
+{-|
+Convert a model type definition into Template Haskell.
+-}
+typeType ::
+  {-| Model type. -}
+  Type ->
+  {-| Template Haskell type. -}
+  TH.Type
 typeType =
   \ case
     AppType a ->
@@ -50,8 +29,32 @@ typeType =
     TupleType a ->
       TH.multiAppT (TH.TupleT (length a)) (fmap typeType a)
 
-recordFieldName fieldNaming a b =
-  TH.textName (Text.recordField fieldNaming a b)
+{-|
+Assemble a record field name.
+-}
+recordFieldName ::
+  {-| Prepend with underscore. -}
+  Bool ->
+  {-| Prefix with type name. -}
+  Bool ->
+  {-| Type name. -}
+  Text ->
+  {-| Label. -}
+  Text ->
+  {-| Template Haskell name. -}
+  TH.Name
+recordFieldName underscore prefixWithTypeName a b =
+  TH.textName (Text.recordField underscore prefixWithTypeName a b)
 
+{-|
+Assemble a sum constructor name.
+-}
+sumConstructorName ::
+  {-| Type name. -}
+  Text ->
+  {-| Label. -}
+  Text ->
+  {-| Template Haskell name. -}
+  TH.Name
 sumConstructorName a b =
   TH.textName (Text.sumConstructor a b)

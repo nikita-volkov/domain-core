@@ -15,14 +15,15 @@ import qualified Language.Haskell.TH as TH (Q, Dec)
 
 
 {-|
-Abstraction which allows to define automatic derivation of any class.
-
-It is implemented as a function from the type declaration in this package\'s own AST
-to a list of Template Haskell declarations in its quotation monad.
+Specification of which instances to automatically derive and how.
 
 Its Monoid instance allows you to combine derivers.
 -}
 newtype Deriver =
+  {-|
+  Function from the type declaration in this package\'s own AST
+  to a list of Template Haskell declarations in its quotation monad.
+  -}
   Deriver (TypeDec -> TH.Q [TH.Dec])
   deriving (Semigroup, Monoid)
     via ((->) TypeDec (Ap TH.Q [TH.Dec]))

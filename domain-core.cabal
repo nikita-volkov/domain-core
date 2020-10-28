@@ -30,7 +30,7 @@ library
     DomainCore.Prelude
     DomainCore.Text
   build-depends:
-    base >=4.9 && <5,
+    base >=4.12 && <5,
     text >=1 && <2,
     template-haskell >=2.13 && <3,
     template-haskell-compat-v0208 >=0.1.5 && <0.2,

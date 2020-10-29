@@ -15,7 +15,8 @@ import qualified Language.Haskell.TH as TH (Q, Dec)
 
 
 {-|
-Specification of which instances to automatically derive and how.
+Specification of which instances to automatically derive for all the
+supported types in the model and how.
 
 You can combine derivers using Monoid and Semigroup.
 -}

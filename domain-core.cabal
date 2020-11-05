@@ -34,5 +34,5 @@ library
     text >=1 && <2,
     template-haskell >=2.13 && <3,
     template-haskell-compat-v0208 >=0.1.5 && <0.2,
-    th-lego >=0.2 && <0.3,
+    th-lego >=0.2.3 && <0.3,
     th-lift-instances >=0.1.17 && <0.2

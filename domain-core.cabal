@@ -1,5 +1,5 @@
 name: domain-core
-version: 0.1.0.1
+version: 0.1.0.2
 synopsis: Low-level API of "domain"
 description:
   Use this package for defining extensions to \"domain\".

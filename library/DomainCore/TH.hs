@@ -1,25 +1,20 @@
-module DomainCore.TH
-where
+module DomainCore.TH where
 
-import DomainCore.Prelude
 import DomainCore.Model
+import DomainCore.Prelude
+import qualified DomainCore.Text as Text
 import qualified Language.Haskell.TH as TH
 import qualified THLego.Helpers as TH
-import qualified DomainCore.Text as Text
-import qualified Data.Text as Text
-import qualified Data.Char as Char
 
-
-{-|
-Convert a model type definition into Template Haskell.
--}
+-- |
+-- Convert a model type definition into Template Haskell.
 typeType ::
-  {-| Model type. -}
+  -- | Model type.
   Type ->
-  {-| Template Haskell type. -}
+  -- | Template Haskell type.
   TH.Type
 typeType =
-  \ case
+  \case
     AppType a ->
       foldl1 TH.AppT (fmap typeType a)
     RefType a ->
@@ -29,32 +24,30 @@ typeType =
     TupleType a ->
       TH.multiAppT (TH.TupleT (length a)) (fmap typeType a)
 
-{-|
-Assemble a record field name.
--}
+-- |
+-- Assemble a record field name.
 recordFieldName ::
-  {-| Prepend with underscore. -}
+  -- | Prepend with underscore.
   Bool ->
-  {-| Prefix with type name. -}
+  -- | Prefix with type name.
   Bool ->
-  {-| Type name. -}
+  -- | Type name.
   Text ->
-  {-| Label. -}
+  -- | Label.
   Text ->
-  {-| Template Haskell name. -}
+  -- | Template Haskell name.
   TH.Name
 recordFieldName underscore prefixWithTypeName a b =
   TH.textName (Text.recordField underscore prefixWithTypeName a b)
 
-{-|
-Assemble a sum constructor name.
--}
+-- |
+-- Assemble a sum constructor name.
 sumConstructorName ::
-  {-| Type name. -}
+  -- | Type name.
   Text ->
-  {-| Label. -}
+  -- | Label.
   Text ->
-  {-| Template Haskell name. -}
+  -- | Template Haskell name.
   TH.Name
 sumConstructorName a b =
   TH.textName (Text.sumConstructor a b)
